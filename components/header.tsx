@@ -96,7 +96,7 @@ export default function Header() {
   const [isAboutOpen, setIsAboutOpen] = useState(false)
   const pathname = usePathname()
   const isHomePage = pathname === "/"
-  
+
   return (
     <header className="absolute top-0 left-0 right-0 z-50">
       {/* Cal.com Script */}
@@ -153,7 +153,10 @@ export default function Header() {
           </Button>
         </nav>
         <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {isMenuOpen ?
+            <X className="h-5 w-5" style={isHomePage ? {filter: 'invert(1) brightness(10)'} : {}} /> :
+            <Menu className="h-5 w-5" style={isHomePage ? {filter: 'invert(1) brightness(10)'} : {}} />
+          }
           <span className="sr-only">Toggle menu</span>
         </Button>
       </div>
@@ -171,7 +174,8 @@ export default function Header() {
             {/* About section with toggle */}
             <div className="space-y-2">
               <button
-                className="flex items-center justify-between w-full text-sm font-medium text-gray-500 transition-colors hover:text-gray-800"
+                className="flex items-center justify-between w-full font-medium text-gray-500 transition-colors hover:text-gray-800 font-cormorant"
+                style={{ fontSize: '1.1rem' }}
                 onClick={() => setIsAboutOpen(!isAboutOpen)}
               >
                 <span>About</span>
@@ -182,21 +186,21 @@ export default function Header() {
                 <div className="pl-4 space-y-2 border-l-2 border-gray-100">
                   <Link
                     href="/about"
-                    className="block text-sm text-gray-500 transition-colors hover:text-gray-800"
+                    className="block text-sm font-medium text-gray-500 transition-colors hover:text-gray-800"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     About Me
                   </Link>
                   <Link
                     href="/approach"
-                    className="block text-sm text-gray-500 transition-colors hover:text-gray-800"
+                    className="block text-sm font-medium text-gray-500 transition-colors hover:text-gray-800"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     My Approach to Therapy
                   </Link>
                   <Link
                     href="/expertise"
-                    className="block text-sm text-gray-500 transition-colors hover:text-gray-800"
+                    className="block text-sm font-medium text-gray-500 transition-colors hover:text-gray-800"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Areas of Expertise

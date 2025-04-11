@@ -59,7 +59,7 @@ export default function ApproachPage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Therapeutic Approach</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Approach</h1>
               <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 A holistic, client-centered methodology focused on your unique needs
               </p>
@@ -73,7 +73,7 @@ export default function ApproachPage() {
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">My Approach</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">My Therapeutic Approach</h2>
               <p className="text-muted-foreground">
                 My therapeutic practice integrates compassionate presence, analytical clarity, and gentle guidance.
               </p>
