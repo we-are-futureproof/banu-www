@@ -169,11 +169,24 @@ export default function BookingPage() {
       <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
         <div className="container px-4 md:px-6">
           <Tabs defaultValue="online" className="w-full max-w-4xl mx-auto" onValueChange={setActiveTab}>
-            <TabsList className="grid w-full grid-cols-3 mb-8">
+            <TabsList className="flex flex-wrap w-full mb-8 overflow-hidden">
               {calendarConfigs.map(config => (
-                <TabsTrigger key={config.tabValue} value={config.tabValue} className="text-sm sm:text-base">
-                  {config.icon} {config.tabValue === "online" ? "Online Session" :
-                    config.tabValue === "amsterdam" ? "Amsterdam In-Person Session" : "Haarlem In-Person Session"}
+                <TabsTrigger
+                  key={config.tabValue}
+                  value={config.tabValue}
+                  className="flex-1 min-w-[100px] text-sm sm:text-base whitespace-normal sm:whitespace-nowrap py-2 px-1 sm:px-3"
+                >
+                  <span className="flex items-center justify-center">
+                    {config.icon}
+                    <span className="hidden sm:inline">
+                      {config.tabValue === "online" ? "Online Session" :
+                       config.tabValue === "amsterdam" ? "Amsterdam In-Person Session" : "Haarlem In-Person Session"}
+                    </span>
+                    <span className="sm:hidden">
+                      {config.tabValue === "online" ? "Online" :
+                       config.tabValue === "amsterdam" ? "Amsterdam" : "Haarlem"}
+                    </span>
+                  </span>
                 </TabsTrigger>
               ))}
             </TabsList>
