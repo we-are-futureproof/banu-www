@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Menu, X } from "lucide-react"
 import Script from "next/script"
+import { usePathname } from "next/navigation"
 
 // Dropdown component for the About menu
 function AboutDropdown() {
@@ -93,7 +94,9 @@ function AboutDropdown() {
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAboutOpen, setIsAboutOpen] = useState(false)
-
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
+  
   return (
     <header className="absolute top-0 left-0 right-0 z-50">
       {/* Cal.com Script */}
@@ -113,6 +116,10 @@ export default function Header() {
               width={70}
               height={70}
               className="h-auto object-contain"
+              style={{
+                filter: isHomePage ? 'invert(1) brightness(10) drop-shadow(0 0 3px white)' : 'none',
+                transition: 'filter 0.3s'
+              }}
             />
           </Link>
         </div>
