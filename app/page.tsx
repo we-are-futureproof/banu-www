@@ -125,7 +125,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold">Individual Therapy</h3>
                 <p className="text-muted-foreground">
-                  One-on-one sessions focused on personal growth, healing, and developing coping strategies.
+                  One-on-one sessions combining multiple therapeutic modalities for comprehensive healing.
                 </p>
                 <Link href="/services#individual" className="text-primary flex items-center gap-1 text-sm font-medium">
                   Learn more <ArrowRight className="h-4 w-4" />
@@ -139,7 +139,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold">Integration Therapy</h3>
                 <p className="text-muted-foreground">
-                  Holistic approach combining multiple therapeutic modalities for comprehensive healing.
+                  REPLACE ME
                 </p>
                 <Link href="/services#integration" className="text-primary flex items-center gap-1 text-sm font-medium">
                   Learn more <ArrowRight className="h-4 w-4" />
@@ -151,11 +151,11 @@ export default function Home() {
                 <div className="rounded-full bg-therapy-gray p-3 w-12 h-12 flex items-center justify-center">
                   <MessageCircle className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-bold">Post-Partum Support</h3>
+                <h3 className="text-xl font-bold">Perinatal Support</h3>
                 <p className="text-muted-foreground">
-                  Specialized care for new parents navigating the emotional challenges of the post-partum period.
+                  Specialized care for new parents navigating the emotional challenges of the perinatal period.
                 </p>
-                <Link href="/services#postpartum" className="text-primary flex items-center gap-1 text-sm font-medium">
+                <Link href="/services#perinatal" className="text-primary flex items-center gap-1 text-sm font-medium">
                   Learn more <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -214,7 +214,7 @@ export default function Home() {
                     "Working with this practice has been transformative. I've gained valuable insights and developed
                     coping strategies that have significantly improved my quality of life."
                   </p>
-                  <p className="font-medium">— Sarah K.</p>
+                  <p className="font-medium">— SK</p>
                 </div>
               </CardContent>
             </Card>
@@ -225,7 +225,7 @@ export default function Home() {
                     "I was hesitant to start therapy, but the warm, non-judgmental approach made me feel comfortable
                     from the first session. I'm grateful for the support and guidance."
                   </p>
-                  <p className="font-medium">— Michael T.</p>
+                  <p className="font-medium">— MT</p>
                 </div>
               </CardContent>
             </Card>
@@ -240,15 +240,19 @@ export default function Home() {
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Ready to Begin Your Journey?</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Schedule an introductory call to discuss your needs and how we might work together. Please click the provided link to book your initial session.
+                Schedule an introductory call to discuss your needs and how we might work together.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="/book">
-                <Button size="lg" className="w-full min-[400px]:w-auto">
-                  <Calendar className="mr-2 h-4 w-4" /> Book an Introductory Call
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                className="w-full min-[400px]:w-auto"
+                data-cal-link="bdalamanli/introductory-call"
+                data-cal-namespace="introductory-call"
+                data-cal-config='{"layout":"month_view","theme":"auto"}'
+              >
+                <Calendar className="mr-2 h-4 w-4" /> Book an Introductory Call
+              </Button>
               <Link href="/contact">
                 <Button variant="outline" size="lg" className="w-full min-[400px]:w-auto">
                   Get in Touch

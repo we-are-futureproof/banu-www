@@ -70,7 +70,7 @@ function useCalendar() {
   const loadCalScript = () => {
     if (typeof window === "undefined") return;
     if (calScriptLoaded) return;
-    
+
     const existingScript = document.getElementById("cal-script");
     if (existingScript) {
       setCalScriptLoaded(true);
@@ -117,7 +117,7 @@ function CalendarTab({ config, isActive }: { config: CalendarConfig, isActive: b
   // Initialize calendar when tab is active and script is loaded
   useEffect(() => {
     if (!isActive || !calScriptLoaded) return;
-    
+
     const timer = setTimeout(() => {
       initCalendar(config);
     }, 100);
@@ -134,9 +134,9 @@ function CalendarTab({ config, isActive }: { config: CalendarConfig, isActive: b
             {config.description}
           </p>
           <div className="h-[600px] bg-gray-50 rounded-lg border">
-            <div 
-              id={config.elementId} 
-              className="cal-container" 
+            <div
+              id={config.elementId}
+              className="cal-container"
               style={{width:"100%", height:"100%", overflow:"scroll"}}
             />
           </div>
@@ -172,12 +172,12 @@ export default function BookingPage() {
             <TabsList className="grid w-full grid-cols-3 mb-8">
               {calendarConfigs.map(config => (
                 <TabsTrigger key={config.tabValue} value={config.tabValue} className="text-sm sm:text-base">
-                  {config.icon} {config.tabValue === "online" ? "Online Session" : 
+                  {config.icon} {config.tabValue === "online" ? "Online Session" :
                     config.tabValue === "amsterdam" ? "Amsterdam In-Person Session" : "Haarlem In-Person Session"}
                 </TabsTrigger>
               ))}
             </TabsList>
-            
+
             {calendarConfigs.map(config => (
               <TabsContent key={config.tabValue} value={config.tabValue} className="space-y-8">
                 <CalendarTab config={config} isActive={activeTab === config.tabValue} />

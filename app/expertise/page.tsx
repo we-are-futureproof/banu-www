@@ -178,9 +178,9 @@ export default function ExpertisePage() {
                   <h3 className="text-xl font-medium">Specialized Continuing Education & Training</h3>
                   <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
                     <li>Compassionate Inquiry Professional Training (completed)</li>
-                    <li>Internal Family Systems (IFS) Therapy (informed)</li>
                     <li>Schema Therapy (ongoing)</li>
                     <li>Polyvagal Theory (ongoing)</li>
+                    <li>Internal Family Systems (IFS) Therapy (informed)</li>
                     <li>Psychedelic Integration Therapy Training (ongoing)</li>
                   </ul>
                 </div>
@@ -208,14 +208,18 @@ export default function ExpertisePage() {
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="/book">
-                <Button size="lg" className="w-full min-[400px]:w-auto">
-                  Book an Introductory Call
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                className="w-full min-[400px]:w-auto"
+                data-cal-link="bdalamanli/introductory-call"
+                data-cal-namespace="introductory-call"
+                data-cal-config='{"layout":"month_view","theme":"auto"}'
+              >
+                Book an Introductory Call
+              </Button>
               <Link href="/contact">
                 <Button variant="outline" size="lg" className="w-full min-[400px]:w-auto">
-                  Contact Me
+                  Get in Touch
                 </Button>
               </Link>
             </div>

@@ -211,14 +211,18 @@ export default function ApproachPage() {
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="/book">
-                <Button size="lg" className="w-full min-[400px]:w-auto">
-                  Book an Introductory Call
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                className="w-full min-[400px]:w-auto"
+                data-cal-link="bdalamanli/introductory-call"
+                data-cal-namespace="introductory-call"
+                data-cal-config='{"layout":"month_view","theme":"auto"}'
+              >
+                Book an Introductory Call
+              </Button>
               <Link href="/contact">
                 <Button variant="outline" size="lg" className="w-full min-[400px]:w-auto">
-                  Contact Me
+                  Get in Touch
                 </Button>
               </Link>
             </div>

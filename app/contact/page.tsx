@@ -73,7 +73,7 @@ export default function ContactPage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Me</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Get in Touch</h1>
               <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 I'm here to answer your questions and support your journey
               </p>
@@ -88,7 +88,7 @@ export default function ContactPage() {
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
             <div className="space-y-8">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter">Get in Touch</h2>
+                <h2 className="text-3xl font-bold tracking-tighter">Let's Connect</h2>
                 <p className="text-muted-foreground">
                   For any questions, please fill out the form below, and I'll get back to you within 1 business day.
                 </p>
@@ -97,21 +97,29 @@ export default function ContactPage() {
                 <CardContent className="p-6 space-y-4">
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Name</Label>
-                      <Input id="name" placeholder="Enter your name" />
+                      <Label htmlFor="name">
+                        <p className="text-lg font-medium">Name</p>
+                      </Label>
+                      <Input id="name" placeholder="Enter your name" className="placeholder:text-gray-300" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="Enter your email" />
+                      <Label htmlFor="email">
+                        <p className="text-lg font-medium">Email</p>
+                      </Label>
+                      <Input id="email" type="email" placeholder="Enter your email" className="placeholder:text-gray-300" />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input id="subject" placeholder="Enter the subject" />
+                    <Label htmlFor="subject">
+                      <p className="text-lg font-medium">Subject</p>
+                    </Label>
+                    <Input id="subject" placeholder="Enter the subject" className="placeholder:text-gray-300" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea id="message" placeholder="Enter your message" rows={6} />
+                    <Label htmlFor="message">
+                      <p className="text-lg font-medium">Message</p>
+                    </Label>
+                    <Textarea id="message" placeholder="Enter your message" rows={6} className="placeholder:text-gray-300" />
                   </div>
                   <Button className="w-full">Send Message</Button>
                 </CardContent>
@@ -161,7 +169,7 @@ export default function ContactPage() {
                         <Phone className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <h4 className="text-base font-bold">Whatsapp</h4>
+                        <h4 className="text-base font-bold">Whatsapp Messaging</h4>
                         <p className="text-muted-foreground text-sm mt-1">
                           <a href="https://wa.me/905457374405?text=Hello%2C+I+just+saw+your+website" className="hover:text-primary">
                             +90 545 737 4405
@@ -224,11 +232,15 @@ export default function ContactPage() {
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="/book">
-                <Button size="lg" className="w-full min-[400px]:w-auto">
-                  Book an Introductory Call
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                className="w-full min-[400px]:w-auto"
+                data-cal-link="bdalamanli/introductory-call"
+                data-cal-namespace="introductory-call"
+                data-cal-config='{"layout":"month_view","theme":"auto"}'
+              >
+                Book an Introductory Call
+              </Button>
             </div>
           </div>
         </div>

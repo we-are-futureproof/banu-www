@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Menu, X } from "lucide-react"
 import Script from "next/script"
@@ -104,7 +105,17 @@ export default function Header() {
         `}
       </Script>
       <div className="container flex h-24 items-center justify-between px-4 md:px-6">
-        <div className="flex items-center"></div>
+        <div className="flex items-center">
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="Banu Dalamanli Logo"
+              width={70}
+              height={70}
+              className="h-auto object-contain"
+            />
+          </Link>
+        </div>
         <nav className="hidden md:flex items-center gap-10">
           <Link href="/" className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800">
             Home
@@ -124,8 +135,8 @@ export default function Header() {
             Contact
           </Link>
 
-          <Button 
-            size="default" 
+          <Button
+            size="default"
             className="w-full min-[400px]:w-auto"
             data-cal-link="bdalamanli/introductory-call"
             data-cal-namespace="introductory-call"
@@ -211,8 +222,8 @@ export default function Header() {
               Contact
             </Link>
 
-            <Button 
-              variant="default" 
+            <Button
+              variant="default"
               className="w-full mt-2 bg-primary text-white hover:bg-primary/90"
               data-cal-link="bdalamanli/introductory-call"
               data-cal-namespace="introductory-call"

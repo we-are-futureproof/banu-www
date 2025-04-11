@@ -111,7 +111,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 lg:gap-12 mt-12">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:gap-12 mt-12">
             <Card>
               <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
                 <div className="rounded-full bg-therapy-blue/30 p-3 w-12 h-12 flex items-center justify-center">
@@ -119,22 +119,8 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold">Education</h3>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>Ph.D. in Clinical Psychology</li>
-                  <li>Master's in Counseling Psychology</li>
-                  <li>Bachelor's in Psychology</li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-                <div className="rounded-full bg-therapy-green/30 p-3 w-12 h-12 flex items-center justify-center">
-                  <Award className="h-6 w-6" />
-                </div>
-                <h3 className="text-xl font-bold">Certifications</h3>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>Licensed Clinical Psychologist</li>
-                  <li>Certified in EMDR Therapy</li>
-                  <li>Certified in Cognitive Behavioral Therapy</li>
+                  <li>BA in Psychology, University of Wisconsin-Milwaukee</li>
+                  <li>Sociology, Bogazici University</li>
                 </ul>
               </CardContent>
             </Card>
@@ -145,9 +131,11 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold">Specialized Training</h3>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>Trauma-Informed Care</li>
-                  <li>Mindfulness-Based Stress Reduction</li>
-                  <li>Perinatal Mental Health</li>
+                  <li>Compassionate Inquiry Professional Training (completed)</li>
+                  <li>Schema Therapy (ongoing)</li>
+                  <li>Polyvagal Theory (informed)</li>
+                  <li>Internal Family Systems (IFS) Therapy (informed)</li>
+                  <li>Psychedelic Integration Therapy Training (ongoing)</li>
                 </ul>
               </CardContent>
             </Card>
@@ -166,14 +154,18 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="/book">
-                <Button size="lg" className="w-full min-[400px]:w-auto">
-                  Book an Introductory Call
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                className="w-full min-[400px]:w-auto"
+                data-cal-link="bdalamanli/introductory-call"
+                data-cal-namespace="introductory-call"
+                data-cal-config='{"layout":"month_view","theme":"auto"}'
+              >
+                Book an Introductory Call
+              </Button>
               <Link href="/contact">
                 <Button variant="outline" size="lg" className="w-full min-[400px]:w-auto">
-                  Contact Me
+                  Get in Touch
                 </Button>
               </Link>
             </div>
