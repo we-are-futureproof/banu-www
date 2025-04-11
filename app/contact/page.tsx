@@ -1,11 +1,7 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import type { Metadata } from "next"
+import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import ContactForm from "./contact-form"
 
 // Contact page metadata and structured data
 export const generateMetadata = async () => {
@@ -65,6 +61,8 @@ export const generateMetadata = async () => {
   }
 }
 
+
+
 export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -93,37 +91,7 @@ export default function ContactPage() {
                   For any questions, please fill out the form below, and I'll get back to you within 1 business day.
                 </p>
               </div>
-              <Card>
-                <CardContent className="p-6 space-y-4">
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">
-                        <p className="text-lg font-medium">Name</p>
-                      </Label>
-                      <Input id="name" placeholder="Enter your name" className="placeholder:text-gray-300" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">
-                        <p className="text-lg font-medium">Email</p>
-                      </Label>
-                      <Input id="email" type="email" placeholder="Enter your email" className="placeholder:text-gray-300" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="subject">
-                      <p className="text-lg font-medium">Subject</p>
-                    </Label>
-                    <Input id="subject" placeholder="Enter the subject" className="placeholder:text-gray-300" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message">
-                      <p className="text-lg font-medium">Message</p>
-                    </Label>
-                    <Textarea id="message" placeholder="Enter your message" rows={6} className="placeholder:text-gray-300" />
-                  </div>
-                  <Button className="w-full">Send Message</Button>
-                </CardContent>
-              </Card>
+              <ContactForm />
             </div>
             <div className="space-y-8">
               <div className="space-y-2">
