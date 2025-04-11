@@ -1,41 +1,123 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { ChevronDown, Menu, X } from "lucide-react"
+
+// Dropdown component for the About menu
+function AboutDropdown() {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Handle mouse enter - immediately show dropdown
+  const handleMouseEnter = () => {
+    // Clear any existing timeout that might be trying to close the menu
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setIsOpen(true);
+  };
+
+  // Handle mouse leave - delay hiding dropdown
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 500); // 500ms delay
+  };
+
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      className="relative group"
+      ref={dropdownRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Link
+        href="#"
+        className="flex items-center text-sm font-medium text-gray-500 transition-colors hover:text-gray-800 font-cormorant"
+        onClick={(e) => {
+          e.preventDefault();
+          setIsOpen(!isOpen);
+        }}
+      >
+        About
+        <ChevronDown className="ml-1 h-4 w-4" />
+      </Link>
+
+      {/* Improved dropdown with larger hit area */}
+      <div
+        className={`absolute left-0 mt-1 min-w-[240px] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 transform transition-opacity duration-150 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Extra padding div to increase hoverable area */}
+        <div className="py-2 px-1" role="menu" aria-orientation="vertical">
+          <Link
+            href="/about"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap"
+          >
+            About Me
+          </Link>
+          <Link
+            href="/approach"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap"
+          >
+            My Approach to Therapy
+          </Link>
+          <Link
+            href="/expertise"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap"
+          >
+            Areas of Expertise
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isAboutOpen, setIsAboutOpen] = useState(false)
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50">
       <div className="container flex h-24 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center">
-          <span className="text-xl font-cormorant font-medium tracking-tight text-gray-800">Therapy Practice</span>
-        </Link>
+        <div className="flex items-center"></div>
         <nav className="hidden md:flex items-center gap-10">
           <Link href="/" className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800">
             Home
           </Link>
+
+          <AboutDropdown />
+
           <Link href="/services" className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800">
             Services
           </Link>
-          <Link href="/expertise" className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800">
-            Areas of Expertise
+
+          <Link href="/book" className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800">
+            Booking
           </Link>
-          <Link href="/approach" className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800">
-            My Approach
-          </Link>
-          <Link
-            href="/resources"
-            className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800"
-          >
-            Resources
-          </Link>
+
           <Link href="/contact" className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800">
             Contact
           </Link>
+
+          <Button size="default" className="w-full min-[400px]:w-auto">
+            Book an Intro Call
+          </Button>
         </nav>
         <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -52,6 +134,44 @@ export default function Header() {
             >
               Home
             </Link>
+
+            {/* About section with toggle */}
+            <div className="space-y-2">
+              <button
+                className="flex items-center justify-between w-full text-sm font-medium text-gray-500 transition-colors hover:text-gray-800"
+                onClick={() => setIsAboutOpen(!isAboutOpen)}
+              >
+                <span>About</span>
+                <ChevronDown className={`h-4 w-4 transition-transform ${isAboutOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {isAboutOpen && (
+                <div className="pl-4 space-y-2 border-l-2 border-gray-100">
+                  <Link
+                    href="/about"
+                    className="block text-sm text-gray-500 transition-colors hover:text-gray-800"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    About Me
+                  </Link>
+                  <Link
+                    href="/approach"
+                    className="block text-sm text-gray-500 transition-colors hover:text-gray-800"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    My Approach to Therapy
+                  </Link>
+                  <Link
+                    href="/expertise"
+                    className="block text-sm text-gray-500 transition-colors hover:text-gray-800"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Areas of Expertise
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <Link
               href="/services"
               className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800"
@@ -59,27 +179,15 @@ export default function Header() {
             >
               Services
             </Link>
+
             <Link
-              href="/expertise"
+              href="/book"
               className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800"
               onClick={() => setIsMenuOpen(false)}
             >
-              Areas of Expertise
+              Booking
             </Link>
-            <Link
-              href="/approach"
-              className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              My Approach
-            </Link>
-            <Link
-              href="/resources/podcast"
-              className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Podcast
-            </Link>
+
             <Link
               href="/contact"
               className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-800"
@@ -87,6 +195,12 @@ export default function Header() {
             >
               Contact
             </Link>
+
+            <Button asChild variant="default" className="w-full mt-2 bg-primary text-white hover:bg-primary/90">
+              <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                Book an Intro Call
+              </Link>
+            </Button>
           </div>
         </div>
       )}

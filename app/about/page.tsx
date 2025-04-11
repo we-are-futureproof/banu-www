@@ -3,6 +3,52 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { GraduationCap, Award, BookOpen } from "lucide-react"
+import type { Metadata } from "next"
+
+// About page metadata and structured data
+export const generateMetadata = async () => {
+  // Create structured data for the about page
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "About Banu Dalamanli",
+    "description": "Learn about Banu Dalamanli's qualifications, experience, and approach to therapy and psychological treatment.",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Banu Dalamanli",
+      "jobTitle": "Psychologist",
+      "description": "With over a decade of experience in the field of mental health, passionate about helping individuals navigate life's challenges and discover their inner strength.",
+      "knowsAbout": ["Individual Therapy", "Integration Therapy", "Compassionate Inquiry", "Trauma-Informed Care"],
+      "hasCredential": [{
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Degree",
+        "educationalLevel": "Bachelor",
+        "recognizedBy": "University of Wisconsin-Milwaukee"
+      }, {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Professional Certificate",
+        "name": "Compassionate Inquiry Professional Training"
+      }]
+    }
+  }
+
+  return {
+    title: "About Banu Dalamanli | Professional Psychologist Background",
+    description: "Learn about Banu Dalamanli's qualifications, therapeutic approach, and professional background in psychology and mental health counseling.",
+    openGraph: {
+      title: "About Banu Dalamanli | Professional Psychologist Background",
+      description: "Learn about Banu Dalamanli's qualifications, therapeutic approach, and professional background in psychology and mental health counseling.",
+      url: "/about",
+      type: "profile"
+    },
+    alternates: {
+      canonical: "https://banudalamanli.com/about"
+    },
+    other: {
+      "script:ld+json": JSON.stringify(jsonLd)
+    }
+  }
+}
 
 export default function AboutPage() {
   return (
@@ -122,7 +168,7 @@ export default function AboutPage() {
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/book">
                 <Button size="lg" className="w-full min-[400px]:w-auto">
-                  Book an Appointment
+                  Book an Introductory Call
                 </Button>
               </Link>
               <Link href="/contact">

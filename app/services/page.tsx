@@ -3,6 +3,79 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Users, Sparkles, Clock } from "lucide-react"
+import type { Metadata } from "next"
+
+// Services page metadata and structured data
+export const generateMetadata = async () => {
+  // Create structured data for the services page
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Therapy Services Offered by Banu Dalamanli",
+    "description": "Specialized therapeutic approaches including individual therapy, integration therapy, and online therapy sessions.",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Service",
+          "name": "Individual Therapy",
+          "description": "Personalized 50-minute sessions either online or in-person, exploring areas in your life, relationships, and internal world.",
+          "provider": {
+            "@type": "Person",
+            "name": "Banu Dalamanli",
+            "jobTitle": "Psychologist"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Service",
+          "name": "Integration Therapy",
+          "description": "Support for those exploring altered states of consciousness through psychedelic medicines, helping with preparation and integration.",
+          "provider": {
+            "@type": "Person",
+            "name": "Banu Dalamanli",
+            "jobTitle": "Psychologist"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Service",
+          "name": "Online Therapy",
+          "description": "Secure, convenient therapy sessions via video conferencing for clients who prefer remote sessions.",
+          "provider": {
+            "@type": "Person",
+            "name": "Banu Dalamanli",
+            "jobTitle": "Psychologist"
+          }
+        }
+      }
+    ]
+  }
+
+  return {
+    title: "Therapy Services | Banu Dalamanli, Psychologist",
+    description: "Explore the range of therapeutic services offered by Banu Dalamanli, including individual therapy, integration therapy, and online sessions.",
+    openGraph: {
+      title: "Therapy Services | Banu Dalamanli, Psychologist",
+      description: "Explore the range of therapeutic services offered by Banu Dalamanli, including individual therapy, integration therapy, and online sessions.",
+      url: "/services",
+      type: "website"
+    },
+    alternates: {
+      canonical: "https://banudalamanli.com/services"
+    },
+    other: {
+      "script:ld+json": JSON.stringify(jsonLd)
+    }
+  }
+}
 
 export default function ServicesPage() {
   return (
@@ -29,15 +102,7 @@ export default function ServicesPage() {
               <div className="inline-block rounded-lg bg-therapy-green/30 px-3 py-1 text-sm">Core Service</div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Individual Therapy</h2>
               <p className="text-muted-foreground">
-                Individual therapy provides a safe, confidential space for you to explore your thoughts, feelings, and
-                behaviors with professional guidance. Through our one-on-one sessions, we'll work together to address
-                your specific concerns, develop coping strategies, and foster personal growth.
-              </p>
-              <p className="text-muted-foreground">
-                This therapeutic approach is highly personalized, allowing us to focus exclusively on your unique needs
-                and goals. Whether you're dealing with anxiety, depression, life transitions, relationship issues, or
-                simply seeking greater self-awareness, individual therapy offers the support and tools you need to
-                navigate life's challenges.
+                Individual therapy consists of personalized 50-minute sessions either online or in-person. Together, we explore areas in your life, relationships, and internal world that you wish to understand or heal, creating a tailored therapeutic journey based on your unique goals and needs.
               </p>
               <div className="space-y-2">
                 <h3 className="text-xl font-medium">What to Expect:</h3>
@@ -83,16 +148,7 @@ export default function ServicesPage() {
               <div className="inline-block rounded-lg bg-therapy-blue/30 px-3 py-1 text-sm">Specialized Approach</div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Integration Therapy</h2>
               <p className="text-muted-foreground">
-                Integration therapy is a holistic approach that combines multiple therapeutic modalities to address the
-                whole person—mind, body, and spirit. This comprehensive method recognizes that healing often requires
-                attention to various aspects of our experience and draws from different therapeutic traditions to create
-                a personalized treatment plan.
-              </p>
-              <p className="text-muted-foreground">
-                By integrating techniques from cognitive-behavioral therapy, mindfulness practices, somatic
-                experiencing, and other evidence-based approaches, we can address complex issues more effectively. This
-                approach is particularly beneficial for those who have tried traditional therapy but feel they need a
-                more multifaceted approach to healing.
+              Integration therapy supports clients exploring altered states of consciousness through psychedelics such as ayahuasca, psilocybin, MDMA, and ketamine. Sessions focus on pre-experience preparation, including intention setting, and post-experience integration to apply insights gained, promoting sustained growth and transformation.
               </p>
               <div className="space-y-2">
                 <h3 className="text-xl font-medium">Key Components:</h3>
@@ -124,15 +180,7 @@ export default function ServicesPage() {
               <div className="inline-block rounded-lg bg-therapy-green/30 px-3 py-1 text-sm">Specialized Support</div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Post-Partum Support</h2>
               <p className="text-muted-foreground">
-                The transition to parenthood brings profound joy but can also involve unexpected challenges. Post-partum
-                support therapy provides specialized care for new parents navigating the emotional and psychological
-                adjustments of the post-partum period, including post-partum depression, anxiety, and adjustment
-                difficulties.
-              </p>
-              <p className="text-muted-foreground">
-                This therapeutic approach acknowledges the unique stressors of new parenthood and offers evidence-based
-                strategies for managing emotions, building confidence in parenting skills, and nurturing your
-                relationship with your baby and partner. You don't have to navigate this transformative time alone.
+                This specialized package provides essential emotional and psychological support during the critical transition into parenthood. Beginning one month before birth and continuing two months afterward, clients benefit from 10 flexible sessions. Support addresses the psychological shifts triggered by becoming a parent, including exploration and healing of personal childhood experiences, emotional resilience, and coping strategies to navigate this transformative time.
               </p>
               <div className="space-y-2">
                 <h3 className="text-xl font-medium">Support Includes:</h3>
@@ -281,7 +329,7 @@ export default function ServicesPage() {
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/book">
                 <Button size="lg" className="w-full min-[400px]:w-auto">
-                  Book an Appointment
+                  Book an Introductory Call
                 </Button>
               </Link>
               <Link href="/contact">

@@ -28,27 +28,6 @@ export default function ExpertisePage() {
             <Card className="bg-therapy-blue/10 border-0">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center gap-4">
-                  <div className="rounded-full bg-therapy-blue/30 p-3 w-12 h-12 flex items-center justify-center">
-                    <Brain className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-xl font-bold">Anxiety & Depression</h3>
-                </div>
-                <p className="text-muted-foreground">
-                  Specialized in evidence-based approaches for treating anxiety disorders and depression, including
-                  generalized anxiety, social anxiety, panic disorder, and major depressive disorder. I help clients
-                  understand the root causes of their symptoms and develop effective strategies for managing them.
-                </p>
-                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                  <li>Cognitive-behavioral techniques for challenging negative thoughts</li>
-                  <li>Mindfulness practices for reducing anxiety and improving mood</li>
-                  <li>Behavioral activation for depression</li>
-                  <li>Exposure therapy for specific phobias and anxiety</li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card className="bg-therapy-green/10 border-0">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center gap-4">
                   <div className="rounded-full bg-therapy-green/30 p-3 w-12 h-12 flex items-center justify-center">
                     <Sparkles className="h-6 w-6" />
                   </div>
@@ -67,6 +46,90 @@ export default function ExpertisePage() {
                 </ul>
               </CardContent>
             </Card>
+            <Card className="bg-therapy-green/20 border-0">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-full bg-therapy-blue/30 p-3 w-12 h-12 flex items-center justify-center">
+                    <Brain className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold">Anxiety & Depression</h3>
+                </div>
+                <p className="text-muted-foreground">
+                  Specialized in evidence-based approaches for treating anxiety disorders and depression, including
+                  generalized anxiety, social anxiety, panic disorder, and major depressive disorder.
+                </p>
+                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
+                  <li>...</li>
+                  <li>...</li>
+                  <li>...</li>
+                  <li>...</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="bg-therapy-beige border-0">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-full bg-therapy-green/30 p-3 w-12 h-12 flex items-center justify-center">
+                    <Clock className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold">Life Transitions</h3>
+                </div>
+                <p className="text-muted-foreground">
+                  Skilled in supporting clients through major life changes such as career shifts, relocation,
+                  relationship changes, and other significant transitions. I help clients navigate uncertainty and find
+                  meaning and purpose during times of change.
+                </p>
+                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
+                  <li>Coping strategies for managing uncertainty</li>
+                  <li>Identity exploration during transitions</li>
+                  <li>Decision-making support</li>
+                  <li>Building resilience and adaptability</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="bg-therapy-blue/10 border-0">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-full bg-therapy-gray p-3 w-12 h-12 flex items-center justify-center">
+                    <Leaf className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold">Self-Esteem & Personal Growth</h3>
+                </div>
+                <p className="text-muted-foreground">
+                  Dedicated to helping clients develop a stronger sense of self, overcome self-criticism, and cultivate
+                  self-compassion. I support individuals in identifying their values and strengths to create a more
+                  fulfilling life aligned with their authentic selves.
+                </p>
+                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
+                  <li>Self-compassion practices</li>
+                  <li>Values clarification and alignment</li>
+                  <li>Challenging negative core beliefs</li>
+                  <li>Building confidence and assertiveness</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="bg-therapy-green/20 border-0">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-full bg-therapy-blue/30 p-3 w-12 h-12 flex items-center justify-center">
+                    <Users className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold">Relationship Issues</h3>
+                </div>
+                <p className="text-muted-foreground">
+                  Experienced in helping individuals and couples navigate relationship challenges, improve
+                  communication, and build healthier connections. I work with various relationship structures and am
+                  LGBTQ+ affirming in my approach.
+                </p>
+                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
+                  <li>Communication skills development</li>
+                  <li>Conflict resolution strategies</li>
+                  <li>Attachment pattern exploration</li>
+                  <li>Building emotional intimacy and trust</li>
+                </ul>
+              </CardContent>
+            </Card>
+
             <Card className="bg-therapy-beige border-0">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center gap-4">
@@ -88,69 +151,6 @@ export default function ExpertisePage() {
                 </ul>
               </CardContent>
             </Card>
-            <Card className="bg-therapy-blue/10 border-0">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="rounded-full bg-therapy-blue/30 p-3 w-12 h-12 flex items-center justify-center">
-                    <Users className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-xl font-bold">Relationship Issues</h3>
-                </div>
-                <p className="text-muted-foreground">
-                  Experienced in helping individuals and couples navigate relationship challenges, improve
-                  communication, and build healthier connections. I work with various relationship structures and am
-                  LGBTQ+ affirming in my approach.
-                </p>
-                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                  <li>Communication skills development</li>
-                  <li>Conflict resolution strategies</li>
-                  <li>Attachment pattern exploration</li>
-                  <li>Building emotional intimacy and trust</li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card className="bg-therapy-green/10 border-0">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="rounded-full bg-therapy-green/30 p-3 w-12 h-12 flex items-center justify-center">
-                    <Clock className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-xl font-bold">Life Transitions</h3>
-                </div>
-                <p className="text-muted-foreground">
-                  Skilled in supporting clients through major life changes such as career shifts, relocation,
-                  relationship changes, and other significant transitions. I help clients navigate uncertainty and find
-                  meaning and purpose during times of change.
-                </p>
-                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                  <li>Coping strategies for managing uncertainty</li>
-                  <li>Identity exploration during transitions</li>
-                  <li>Decision-making support</li>
-                  <li>Building resilience and adaptability</li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card className="bg-therapy-beige border-0">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="rounded-full bg-therapy-gray p-3 w-12 h-12 flex items-center justify-center">
-                    <Leaf className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-xl font-bold">Self-Esteem & Personal Growth</h3>
-                </div>
-                <p className="text-muted-foreground">
-                  Dedicated to helping clients develop a stronger sense of self, overcome self-criticism, and cultivate
-                  self-compassion. I support individuals in identifying their values and strengths to create a more
-                  fulfilling life aligned with their authentic selves.
-                </p>
-                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                  <li>Self-compassion practices</li>
-                  <li>Values clarification and alignment</li>
-                  <li>Challenging negative core beliefs</li>
-                  <li>Building confidence and assertiveness</li>
-                </ul>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
@@ -168,21 +168,20 @@ export default function ExpertisePage() {
               </p>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <h3 className="text-xl font-medium">Advanced Certifications</h3>
+                  <h3 className="text-xl font-medium">Degrees</h3>
                   <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                    <li>Certified EMDR Therapist</li>
-                    <li>Perinatal Mental Health Certification (PMH-C)</li>
-                    <li>Certified Trauma Professional</li>
-                    <li>Advanced Training in Cognitive Behavioral Therapy</li>
+                    <li>Psychology, University of Wisconsin-Milwaukee</li>
+                    <li>Sociology, Boğaziçi University</li>
                   </ul>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-medium">Specialized Training</h3>
+                  <h3 className="text-xl font-medium">Specialized Continuing Education & Training</h3>
                   <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                    <li>Mindfulness-Based Stress Reduction (MBSR)</li>
-                    <li>Acceptance and Commitment Therapy (ACT)</li>
-                    <li>Gottman Method Couples Therapy (Level 2)</li>
-                    <li>Internal Family Systems (IFS) Therapy</li>
+                    <li>Compassionate Inquiry Professional Training (completed)</li>
+                    <li>Internal Family Systems (IFS) Therapy (informed)</li>
+                    <li>Schema Therapy (ongoing)</li>
+                    <li>Polyvagal Theory (ongoing)</li>
+                    <li>Psychedelic Integration Therapy Training (ongoing)</li>
                   </ul>
                 </div>
               </div>
@@ -211,7 +210,7 @@ export default function ExpertisePage() {
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/book">
                 <Button size="lg" className="w-full min-[400px]:w-auto">
-                  Book an Appointment
+                  Book an Introductory Call
                 </Button>
               </Link>
               <Link href="/contact">

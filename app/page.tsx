@@ -2,7 +2,65 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, Calendar, Heart, Leaf, MessageCircle, MessageSquare } from "lucide-react"
+import { ArrowRight, Calendar, Heart, Leaf, MessageCircle } from "lucide-react"
+import type { Metadata } from "next"
+
+// Homepage metadata and structured data
+export const generateMetadata = async () => {
+  // Create structured data for psychologist profile
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Banu Dalamanli",
+    "jobTitle": "Psychologist",
+    "description": "A professional therapy practice where you'll find compassionate care, meaningful support, and a safe space where healing begins.",
+    "url": "https://banudalamanli.com",
+    "image": "https://banudalamanli.com/banu-dalamanli.jpg",
+    "knowsLanguage": ["English", "Dutch"],
+    "workLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Haarlem",
+        "postalCode": "2023 CP",
+        "addressCountry": "Netherlands"
+      }
+    },
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Individual Therapy"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Integration Therapy"
+        }
+      }
+    ]
+  }
+
+  return {
+    title: "Banu Dalamanli | Psychologist & Therapist in Haarlem",
+    description: "Professional therapy practice offering compassionate care, meaningful support, and a safe space where healing begins.",
+    openGraph: {
+      title: "Banu Dalamanli | Psychologist & Therapist in Haarlem",
+      description: "Professional therapy practice offering compassionate care, meaningful support, and a safe space where healing begins.",
+      url: "/",
+      type: "website"
+    },
+    alternates: {
+      canonical: "https://banudalamanli.com"
+    },
+    other: {
+      "script:ld+json": JSON.stringify(jsonLd)
+    }
+  }
+}
 
 export default function Home() {
   return (
@@ -14,7 +72,7 @@ export default function Home() {
             {/* Left side - Image */}
             <div className="relative h-[50vh] lg:h-screen">
               <Image
-                src="/placeholder.svg?height=1000&width=800"
+                src="/banu-dalamanli.jpg"
                 alt="Therapist portrait"
                 fill
                 className="object-cover object-center"
@@ -26,34 +84,26 @@ export default function Home() {
             <div className="flex flex-col justify-center px-4 lg:px-12 py-12 lg:py-0">
               <div className="space-y-6 max-w-xl">
                 <h1 className="text-[4rem] lg:text-[5.5rem] font-cormorant font-normal leading-[1.1] text-gray-800">
-                  Therapy Practice
+                  Banu Dalamanli
                 </h1>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-[1px] bg-gray-400"></div>
-                  <p className="text-xl text-gray-500 font-cormorant">Ph.D. Clinical Psychotherapist</p>
+                  <p className="text-xl text-gray-500 font-cormorant">Psychologist</p>
                 </div>
                 <p className="text-gray-600 text-lg">
-                  I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or
-                  double click me to add your own content and make changes to the font. I'm a great place for you to
-                  tell a story and let your users know a little more about you.
+                  I am a mental health counselor and psychologist with extensive training, including the year-long Compassionate Inquiry professional training and a psychology degree from the University of Wisconsin-Milwaukee.
+                </p>
+                <p className="text-gray-600 text-lg">
+                  My practice offers individual therapy sessions both in-person and online, as well as integration therapy to support clients who explore altered states of consciousness through psychedelic medicines. I help clients prepare, set intentions, and integrate insights from these profound experiences.
+                </p>
+                <p className="text-gray-600 text-lg">
+                  My therapeutic approach blends compassion, non-judgmental support, analytical insights, and gentle guidance. I hold space for every emotion, thought, or experience clients bring into therapy, providing an environment of complete acceptance and understanding.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Chat button */}
-        <div className="fixed bottom-8 right-8 z-10">
-          <Button
-            variant="secondary"
-            className="rounded-full px-6 py-6 h-auto bg-gray-400/80 hover:bg-gray-400 text-white"
-          >
-            <span className="flex items-center gap-2">
-              <MessageSquare className="h-5 w-5" />
-              Let's Chat!
-            </span>
-          </Button>
-        </div>
       </section>
 
       {/* Featured Services */}
@@ -119,7 +169,7 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <Image
-              src="/placeholder.svg?height=600&width=600"
+              src="/banu-dalamanli-2.jpg"
               width={600}
               height={600}
               alt="Professional therapist portrait"
@@ -128,13 +178,10 @@ export default function Home() {
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Meet Your Therapist</h2>
               <p className="text-muted-foreground md:text-xl/relaxed">
-                With over 10 years of experience, I provide a warm, non-judgmental space where you can explore your
-                thoughts and feelings freely. My approach is collaborative, empathetic, and tailored to your unique
-                needs.
+                My therapeutic approach blends compassion, non-judgmental support, analytical insights, and gentle guidance. I hold space for every emotion, thought, or experience clients bring into therapy, providing an environment of complete acceptance and understanding.
               </p>
               <p className="text-muted-foreground md:text-xl/relaxed">
-                I believe in the innate capacity for growth and healing that exists within each of us, and I'm committed
-                to helping you access your inner resources for positive change.
+                Clients frequently share that therapy helps them feel more connected and empowered, expressing that they discover a stronger, more authentic version of themselves. Many appreciate the deeply accepting, judgment-free environment that allows them to feel completely seen and heard. Clients also express newfound clarity, autonomy, and a deeper sense of ownership over their lives through our work together.
               </p>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Link href="/about">
@@ -193,18 +240,18 @@ export default function Home() {
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Ready to Begin Your Journey?</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Take the first step toward healing and personal growth today.
+                Schedule an introductory call to discuss your needs and how we might work together. Please click the provided link to book your initial session.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/book">
                 <Button size="lg" className="w-full min-[400px]:w-auto">
-                  <Calendar className="mr-2 h-4 w-4" /> Book an Appointment
+                  <Calendar className="mr-2 h-4 w-4" /> Book an Introductory Call
                 </Button>
               </Link>
               <Link href="/contact">
                 <Button variant="outline" size="lg" className="w-full min-[400px]:w-auto">
-                  Contact Us
+                  Get in Touch
                 </Button>
               </Link>
             </div>

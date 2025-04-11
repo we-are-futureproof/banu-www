@@ -397,7 +397,7 @@ export default function ResourcesPage() {
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/book">
                 <Button size="lg" className="w-full min-[400px]:w-auto">
-                  Book an Appointment
+                  Book an Introductory Call
                 </Button>
               </Link>
               <Link href="/contact">

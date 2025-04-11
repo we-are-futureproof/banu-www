@@ -61,7 +61,10 @@
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  p,
+  span,
+  li {
     @apply font-cormorant;
   }
 }
@@ -72,6 +75,49 @@
 
 .font-sans {
   font-family: var(--font-inter);
+}
+
+button, .button, [class*="btn"] {
+  font-family: var(--font-inter);
+}
+
+/* Apply Cormorant to navigation links specifically */
+nav a, header a, footer a:not(.footer-pages a) {
+  font-family: var(--font-cormorant);
+  font-size: 1.1rem !important; /* Slightly larger than default */
+}
+
+/* Smaller font size for footer pages navigation */
+.footer-pages a {
+  font-family: var(--font-cormorant);
+  font-size: 0.875rem !important; /* text-sm equivalent */
+}
+
+/* Ensure consistent font styling for contact information text */
+.contact-info-section .text-muted-foreground,
+.contact-info-section p,
+.contact-info-section a {
+  font-family: var(--font-cormorant) !important;
+  font-size: 0.875rem !important; /* text-sm equivalent */
+  line-height: 1.25 !important; /* Match the line height of address sections */
+  margin: 0 !important; /* Remove all margins */
+}
+
+/* Adjust spacing for Whatsapp section specifically */
+.contact-info-section h4:contains("Whatsapp") + p {
+  margin-top: 0.25rem !important;
+}
+
+/* Preserve spacing in office hours grid */
+.contact-info-section .grid-cols-2 {
+  gap-y: 0 !important;
+  row-gap: 0 !important;
+  margin-top: 0.25rem !important;
+}
+
+/* Keep consistent spacing between sections */
+.contact-info-section .flex.items-start {
+  margin-bottom: 1.25rem !important;
 }
 
 .hero-section {

@@ -14,14 +14,35 @@ const inter = Inter({
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-cormorant",
 })
 
 export const metadata: Metadata = {
-  title: "Therapy Practice | Professional Counseling Services",
+  title: "Banu Dalamanli, Psychologist | Professional Therapy Practice",
   description:
-    "A professional therapy practice offering individual therapy, integration therapy, and post-partum support in a warm, supportive environment.",
-    generator: 'v0.dev'
+    "A professional therapy practice where you'll find compassionate care, meaningful support, and a safe space where healing begins.",
+  generator: 'v0.dev',
+  openGraph: {
+    title: "Banu Dalamanli, Psychologist | Professional Therapy Practice",
+    description: "A professional therapy practice where you'll find compassionate care, meaningful support, and a safe space where healing begins.",
+    images: [{
+      url: "/banu-dalamanli.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Banu Dalamanli, Psychologist"
+    }],
+    type: "website",
+    locale: "en_US",
+    siteName: "Banu Dalamanli, Psychologist",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Banu Dalamanli, Psychologist | Professional Therapy Practice",
+    description: "A professional therapy practice where you'll find compassionate care, meaningful support, and a safe space where healing begins.",
+    images: ["/banu-dalamanli.jpg"],
+    creator: "@beyondborderscounseling"
+  }
 }
 
 export default function RootLayout({
