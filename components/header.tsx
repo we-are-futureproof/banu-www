@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Menu, X } from "lucide-react"
+import Script from "next/script"
 
 // Dropdown component for the About menu
 function AboutDropdown() {
@@ -94,6 +95,14 @@ export default function Header() {
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50">
+      {/* Cal.com Script */}
+      <Script id="cal-embed-script" strategy="afterInteractive">
+        {`
+          (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+          Cal("init", "introductory-call", {origin:"https://cal.com"});
+          Cal.ns["introductory-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+        `}
+      </Script>
       <div className="container flex h-24 items-center justify-between px-4 md:px-6">
         <div className="flex items-center"></div>
         <nav className="hidden md:flex items-center gap-10">
@@ -115,7 +124,13 @@ export default function Header() {
             Contact
           </Link>
 
-          <Button size="default" className="w-full min-[400px]:w-auto">
+          <Button 
+            size="default" 
+            className="w-full min-[400px]:w-auto"
+            data-cal-link="bdalamanli/introductory-call"
+            data-cal-namespace="introductory-call"
+            data-cal-config='{"layout":"month_view","theme":"auto"}'
+          >
             Book an Intro Call
           </Button>
         </nav>
@@ -196,10 +211,15 @@ export default function Header() {
               Contact
             </Link>
 
-            <Button asChild variant="default" className="w-full mt-2 bg-primary text-white hover:bg-primary/90">
-              <Link href="/" onClick={() => setIsMenuOpen(false)}>
-                Book an Intro Call
-              </Link>
+            <Button 
+              variant="default" 
+              className="w-full mt-2 bg-primary text-white hover:bg-primary/90"
+              data-cal-link="bdalamanli/introductory-call"
+              data-cal-namespace="introductory-call"
+              data-cal-config='{"layout":"month_view","theme":"auto"}'
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Book an Intro Call
             </Button>
           </div>
         </div>
